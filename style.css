@@ -1,0 +1,128 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #000;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: #004aad;
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #fec70b;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+/* Section */
+.section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #fec70b;
+}
+
+/* Grid Layout */
+.services,
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Neon Card Style */
+.card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    #004aad,
+    #00ffe1,
+    #fec70b,
+    #ff00f7,
+    #004aad
+  );
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(25px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: glowMove 6s linear infinite;
+}
+
+.card:hover::before {
+  opacity: 0.8;
+}
+
+@keyframes glowMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Footer */
+footer {
+  background: #111;
+  padding: 2rem;
+  text-align: center;
+  color: #aaa;
+}
+
+/* Links */
+a {
+  color: #fec70b;
+  text-decoration: none;
+}
+
+/* Responsive Typography */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+}
